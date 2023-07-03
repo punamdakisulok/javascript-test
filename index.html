@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <title>Display JSON Data in HTML</title>
+    <style>
+        * {
+            background-color: rgb(241, 241, 241);
+        }
+
+        .card-list {
+            color: #23262F;
+            display: inline-flex;
+            flex-direction: column;
+        }
+
+        .location_name {
+            background-color: white;
+        }
+
+        .card-body {
+            background-color: white;
+            border-bottom-left-radius: 1rem;
+            border-bottom-right-radius: 1rem;
+        }
+
+        .card {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            vertical-align: baseline;
+            border-radius: 13px;
+        }
+
+        .checked {
+            color: orange;
+            background: white;
+        }
+
+        .star {
+            background: white;
+        }
+
+        .card-img-top {
+            display: flex;
+            width: 300px;
+            height: 300px;
+            border-top-left-radius: 1rem;
+            border-top-right-radius: 1rem;
+            /* transition: 1s ease; */
+        }
+
+        .card-img-top:hover {
+            opacity: 0.5;
+        }
+
+        /* .card-img-top:hover {
+            -webkit-transform: scale(0.8);
+            -ms-transform: scale(0.8);
+            transform: scale(0.8);
+            transition: 1s ease;
+        } */
+
+        .title {
+            transition: color .2s;
+            font-size: 16px;
+            margin-bottom: 10px;
+            font-family: 'Poppins', sans-serif;
+            font-style: normal;
+            background: white;
+            font-weight: 500;
+        }
+
+        .location_name {
+            margin-left: 6px;
+            margin-bottom: 7px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 12px;
+            line-height: 1.66667;
+            color: #353945
+        }
+
+        .title:hover {
+            color: blue;
+        }
+
+        #country {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin: 22px;
+        }
+
+        button {
+            border: none;
+            border-radius: none;
+            margin: 5px;
+            padding: 6px;
+        }
+
+        button:hover {
+            background-color: black;
+            border-radius: 3rem;
+            color: white;
+        }
+
+        .review {
+            display: flex;
+            background: white;
+            margin: 10px;
+            border-bottom-left-radius: 1rem;
+            border-bottom-right-radius: 1rem;
+        }
+
+        .content {
+            display: flex;
+            margin-left: 6px;
+            justify-content: space-between;
+            background: white;
+            color: #4d4d4e;
+        }
+
+        .price {
+            color: green;
+            margin-top: 17px;
+            margin-right: 15px;
+            border: 2px solid green;
+            padding: 5px 7px;
+            border-radius: 4px;
+            font-size: 12px;
+            line-height: 1;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .line {
+            background: rgb(177 177 177);
+            height: 1px;
+            width: 92%;
+            margin-left: 10px;
+        }
+
+        .date {
+            background: white;
+            padding: 15px;
+            margin-right: 20px;
+            border-bottom-left-radius: 1rem;
+            border-bottom-right-radius: 1rem;
+            font-family: sans-serif;
+            color: darkgrey;
+            font-size: 12px;
+        }
+
+        .ratingstar {
+            background: white;
+            margin: 11px;
+            margin-left: 20px;
+        }
+
+        .select {
+            border-radius: 10px;
+        }
+
+        .travels__select {
+            display: none;
+            margin-top: 10px;
+        }
+
+        .responsive-menu {
+            display: block;
+        }
+
+        .nav:hover {
+            display: flex;
+        }
+
+        @media only screen and (max-width: 768px) {
+            .card {
+                margin-bottom: 20px;
+                padding: 17px;
+            }
+        }
+
+        @media only screen and (max-width: 768px) {
+            .nav {
+                flex-direction: column;
+            }
+
+            .travels__select {
+                display: block;
+            }
+
+            .responsive-menu {
+                display: none;
+            }
+        }
+
+        @media only screen and (max-width: 768px) {
+            .responsive-menu {
+                display: block;
+            }
+
+            .responsive-menu select {
+                width: 50%;
+                padding: 10px;
+                font-size: 16px;
+            }
+
+            .responsive-menu select:focus {
+                outline: none;
+            }
+        }
+
+        .nav {
+            display: flex;
+        }
+
+        .nav__link {
+            cursor: pointer;
+        }
+
+        .nav__link.active {
+            font-weight: bold;
+
+        }
+
+        .responsive-menu {
+            display: none;
+            margin-top: 10px;
+        }
+
+        .responsive-menu {
+            display: block;
+        }
+
+        @media only screen and (max-width: 1024px) {
+            .nav {
+                display: none;
+            }
+        }
+
+        .travels__select {
+            display: none;
+        }
+
+        .responsive-menu {
+
+            margin-bottom: 20px;
+            display: none;
+        }
+
+        @media only screen and (max-width: 1154px) {
+            .nav {
+                flex-direction: column;
+                width: 30px;
+            }
+
+            .responsive-menu {
+                display: block;
+            }
+
+            .responsive-menu {
+                display: none;
+            }
+        }
+
+        .nav:hover {
+            display: flex;
+        }
+
+        .nav__link {
+            background: none;
+            border-radius: 14px;
+            color: #777e90;
+            cursor: pointer;
+            font-family: DM Sans, sans-serif;
+            font-size: 14px;
+            font-weight: 700;
+            line-height: 1.14286;
+            padding: 6px 12px;
+            transition: all .2s;
+        }
+
+        @media only screen and (max-width: 1154px) {
+            .nav {
+                display: none;
+            }
+        }
+
+        .responsive-menu {
+            display: none;
+        }
+
+        .responsive-menu {
+            margin-bottom: 20px;
+            display: none;
+        }
+
+        @media only screen and (max-width: 1154px) {
+            .nav {
+                display: none;
+            }
+
+            .responsive-menu {
+                display: block;
+            }
+
+            .responsive-menu select {
+                width: 100%;
+                padding: 10px;
+                font-size: 16px;
+            }
+
+            .responsive-menu select:focus {
+                outline: none;
+            }
+        }
+
+        .line:not(:last-child) {
+            border-bottom: 2px solid #e6e8ec;
+            margin-bottom: 16px;
+            padding-bottom: 16px;
+            background-color: white;
+        }
+
+        .fa {
+            background: white;
+        }
+
+        .nav__link.active {
+
+            color: #fcfcfd;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <h1>Get inspired</h1>
+        <p>Find amazing places</p>
+    </div>
+    <div class="nav">
+        <span id="allPropertiesLink" class="nav__link active">
+            <button class="activebtn"> All Properties</button>
+        </span>
+        <span id="petFriendlyLink" class="nav__link">
+            <button> Pet Friendly</button>
+        </span>
+        <span id="familyFriendlyLink" class="nav__link">
+            <button> Family Friendly</button>
+        </span>
+        <span id="luxuryLink" class="nav__link">
+            <button> Luxury</button>
+        </span>
+    </div>
+    <div class="responsive-menu ">
+        <select id="propertySelect" class="select">
+            <option>All Properties</option>
+            <option>Pet Friendly</option>
+            <option>Family Friendly</option>
+            <option>Luxury</option>
+        </select>
+    </div>
+    <div id="country"></div>
+    <script>
+        let allData = [];
+        let filteredData = [];
+
+        function fetchData() {
+            fetch("data.json")
+                .then((res) => res.json())
+                .then((data) => {
+                    allData = data.result;
+                    filteredData = allData;
+                    renderProperties(filteredData);
+                })
+                .catch((error) => {
+                    console.log(`Error Fetching data: ${error}`);
+                    document.getElementById("country").innerHTML = "Error Loading Data";
+                });
+        }
+        fetchData();
+        function renderStarRating(rating) {
+            const maxRating = 5;
+            let stars = '';
+            for (let i = 1; i <= maxRating; i++) {
+                if (rating >= i) {
+                    stars += '<span class="fa fa-star checked"></span>';
+                } else {
+                    stars += '<span class="fa star">&#xf006;</span>';
+                }
+            }
+            return stars;
+        }
+        function renderProperties(properties) {
+            let output = "";
+            properties.forEach(function (item) {
+                var createdAt = new Date(item.createdAt);
+                var isValidDate = !isNaN(createdAt);
+
+                var date = isValidDate
+                    ? createdAt.toLocaleDateString("en-US", {
+                        year: "numeric",
+                        month: "long",
+                        day: "numeric"
+                    })
+                    : "Invalid Date";
+
+                // const firstImage = item.image[0];
+
+                const amenities = item.amenities || [];
+
+                const amenitiesHtml = amenities
+                    .map((amenity) => `<div class="amenity">${amenity}</div>`)
+                    .join("");
+                output += `
+                <div class="card-list">
+                    <div class="card">
+                        <img class="card-img-top" src="${item.image[0]}" alt="Card image">
+                         <div class = "card-body">
+                          <div class = "content">
+                               <h3 class="title">${item.title.slice(0, 25)}</h3>   
+                               <div class="price">${item.price[0].currency?.split(" ")[0] || "$"} ${item.price[0].number || 0}</div>
+                            </div>
+                              <div class="location_name">${item.location_name}</div>
+                              <div class="line"></div>
+                                <div class="review">
+                                 <div class="date">${date}</div>
+                                 <span class="ratingstar">${renderStarRating(item.property_reviews)}</span>
+                                </div>
+                          </div>
+                    </div>
+                </div>
+                `;
+            });
+            document.getElementById("country").innerHTML = output;
+        }
+        function showAllProperties() {
+            filteredData = allData.filter((item) => item.filter.includes('All Property'));
+            renderProperties(filteredData);
+        }
+        function showPetFriendly() {
+            filteredData = allData.filter((item) => item.filter.includes('Pet Friendly'));
+            renderProperties(filteredData);
+        }
+        function showFamilyFriendly() {
+            filteredData = allData.filter((item) => item.filter.includes('Family Friendly'));
+            renderProperties(filteredData);
+        }
+        function showLuxury() {
+            filteredData = allData.filter((item) => item.filter.includes('Luxury'));
+            renderProperties(filteredData);
+        }
+        function handleFilter(filter) {
+
+            allPropertiesLink.classList.remove('active');
+            petFriendlyLink.classList.remove('active');
+            familyFriendlyLink.classList.remove('active');
+            luxuryLink.classList.remove('active');
+
+            if (filter === '') {
+                allPropertiesLink.classList.add('active');
+            } else if (filter === 'Pet Friendly') {
+                petFriendlyLink.classList.add('active');
+            } else if (filter === 'Family Friendly') {
+                familyFriendlyLink.classList.add('active');
+            } else if (filter === 'Luxury') {
+                luxuryLink.classList.add('active');
+            }
+
+            propertySelect.value = filter;
+
+            if (filter === '') {
+                filteredData = allData;
+            } else {
+                filteredData = allData.filter((item) => item.tags && item.tags.includes(filter));
+            }
+
+            renderProperties(filteredData);
+        }
+        const allPropertiesLink = document.getElementById('allPropertiesLink');
+        const petFriendlyLink = document.getElementById('petFriendlyLink');
+        const familyFriendlyLink = document.getElementById('familyFriendlyLink');
+        const luxuryLink = document.getElementById('luxuryLink');
+        const propertySelect = document.getElementById('propertySelect');
+
+        allPropertiesLink.addEventListener('click', () => (''));
+        petFriendlyLink.addEventListener('click', () => showPetFriendly()('Pet Friendly'));
+        familyFriendlyLink.addEventListener('click', () => showFamilyFriendly()('Family Friendly'));
+        luxuryLink.addEventListener('click', () => showLuxury()('Luxury'));
+        //propertySelect.addEventListener('change', (event) => showAllProperties()(''));
+        propertySelect.addEventListener('change', (event) => {
+            const selectedFilter = event.target.value;
+            renderProperties(filteredData);
+        });
+
+    </script>
+</body>
+
+</html>
