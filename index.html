@@ -1,511 +1,691 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <!-- <link rel="stylesheet" href="bootstrap.min.css"> -->
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    <title>Display JSON Data in HTML</title>
-    <style>
-        * {
-            background-color: rgb(241, 241, 241);
-        }
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+        integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
 
-        .card-list {
-            color: #23262F;
-            display: inline-flex;
-            flex-direction: column;
-        }
+    <link
+        href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Nunito:wght@600;700;800&family=Pacifico&display=swap"
+        rel="stylesheet">
 
-        .location_name {
-            background-color: white;
-        }
+    <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script> -->
 
-        .card-body {
-            background-color: white;
-            border-bottom-left-radius: 1rem;
-            border-bottom-right-radius: 1rem;
-        }
-
-        .card {
-            margin: 0;
-            padding: 0;
-            border: 0;
-            vertical-align: baseline;
-            border-radius: 13px;
-        }
-
-        .checked {
-            color: orange;
-            background: white;
-        }
-
-        .star {
-            background: white;
-        }
-
-        .card-img-top {
-            display: flex;
-            width: 300px;
-            height: 300px;
-            border-top-left-radius: 1rem;
-            border-top-right-radius: 1rem;
-            /* transition: 1s ease; */
-        }
-
-        .card-img-top:hover {
-            opacity: 0.5;
-        }
-
-        /* .card-img-top:hover {
-            -webkit-transform: scale(0.8);
-            -ms-transform: scale(0.8);
-            transform: scale(0.8);
-            transition: 1s ease;
-        } */
-
-        .title {
-            transition: color .2s;
-            font-size: 16px;
-            margin-bottom: 10px;
-            font-family: 'Poppins', sans-serif;
-            font-style: normal;
-            background: white;
-            font-weight: 500;
-        }
-
-        .location_name {
-            margin-left: 6px;
-            margin-bottom: 7px;
-            font-family: 'Poppins', sans-serif;
-            font-size: 12px;
-            line-height: 1.66667;
-            color: #353945
-        }
-
-        .title:hover {
-            color: blue;
-        }
-
-        #country {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
-            margin: 22px;
-        }
-
-        button {
-            border: none;
-            border-radius: none;
-            margin: 5px;
-            padding: 6px;
-        }
-
-        button:hover {
-            background-color: black;
-            border-radius: 3rem;
-            color: white;
-        }
-
-        .review {
-            display: flex;
-            background: white;
-            margin: 10px;
-            border-bottom-left-radius: 1rem;
-            border-bottom-right-radius: 1rem;
-        }
-
-        .content {
-            display: flex;
-            margin-left: 6px;
-            justify-content: space-between;
-            background: white;
-            color: #4d4d4e;
-        }
-
-        .price {
-            color: green;
-            margin-top: 17px;
-            margin-right: 15px;
-            border: 2px solid green;
-            padding: 5px 7px;
-            border-radius: 4px;
-            font-size: 12px;
-            line-height: 1;
-            font-weight: 700;
-            text-transform: uppercase;
-        }
-
-        .line {
-            background: rgb(177 177 177);
-            height: 1px;
-            width: 92%;
-            margin-left: 10px;
-        }
-
-        .date {
-            background: white;
-            padding: 15px;
-            margin-right: 20px;
-            border-bottom-left-radius: 1rem;
-            border-bottom-right-radius: 1rem;
-            font-family: sans-serif;
-            color: darkgrey;
-            font-size: 12px;
-        }
-
-        .ratingstar {
-            background: white;
-            margin: 11px;
-            margin-left: 20px;
-        }
-
-        .select {
-            border-radius: 10px;
-        }
-
-        .travels__select {
-            display: none;
-            margin-top: 10px;
-        }
-
-        .responsive-menu {
-            display: block;
-        }
-
-        .nav:hover {
-            display: flex;
-        }
-
-        @media only screen and (max-width: 768px) {
-            .card {
-                margin-bottom: 20px;
-                padding: 17px;
-            }
-        }
-
-        @media only screen and (max-width: 768px) {
-            .nav {
-                flex-direction: column;
-            }
-
-            .travels__select {
-                display: block;
-            }
-
-            .responsive-menu {
-                display: none;
-            }
-        }
-
-        @media only screen and (max-width: 768px) {
-            .responsive-menu {
-                display: block;
-            }
-
-            .responsive-menu select {
-                width: 50%;
-                padding: 10px;
-                font-size: 16px;
-            }
-
-            .responsive-menu select:focus {
-                outline: none;
-            }
-        }
-
-        .nav {
-            display: flex;
-        }
-
-        .nav__link {
-            cursor: pointer;
-        }
-
-        .nav__link.active {
-            font-weight: bold;
-
-        }
-
-        .responsive-menu {
-            display: none;
-            margin-top: 10px;
-        }
-
-        .responsive-menu {
-            display: block;
-        }
-
-        @media only screen and (max-width: 1024px) {
-            .nav {
-                display: none;
-            }
-        }
-
-        .travels__select {
-            display: none;
-        }
-
-        .responsive-menu {
-
-            margin-bottom: 20px;
-            display: none;
-        }
-
-        @media only screen and (max-width: 1154px) {
-            .nav {
-                flex-direction: column;
-                width: 30px;
-            }
-
-            .responsive-menu {
-                display: block;
-            }
-
-            .responsive-menu {
-                display: none;
-            }
-        }
-
-        .nav:hover {
-            display: flex;
-        }
-
-        .nav__link {
-            background: none;
-            border-radius: 14px;
-            color: #777e90;
-            cursor: pointer;
-            font-family: DM Sans, sans-serif;
-            font-size: 14px;
-            font-weight: 700;
-            line-height: 1.14286;
-            padding: 6px 12px;
-            transition: all .2s;
-        }
-
-        @media only screen and (max-width: 1154px) {
-            .nav {
-                display: none;
-            }
-        }
-
-        .responsive-menu {
-            display: none;
-        }
-
-        .responsive-menu {
-            margin-bottom: 20px;
-            display: none;
-        }
-
-        @media only screen and (max-width: 1154px) {
-            .nav {
-                display: none;
-            }
-
-            .responsive-menu {
-                display: block;
-            }
-
-            .responsive-menu select {
-                width: 100%;
-                padding: 10px;
-                font-size: 16px;
-            }
-
-            .responsive-menu select:focus {
-                outline: none;
-            }
-        }
-
-        .line:not(:last-child) {
-            border-bottom: 2px solid #e6e8ec;
-            margin-bottom: 16px;
-            padding-bottom: 16px;
-            background-color: white;
-        }
-
-        .fa {
-            background: white;
-        }
-
-        .nav__link.active {
-
-            color: #fcfcfd;
-        }
-    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
 </head>
 
 <body>
-    <div>
-        <h1>Get inspired</h1>
-        <p>Find amazing places</p>
-    </div>
-    <div class="nav">
-        <span id="allPropertiesLink" class="nav__link active">
-            <button class="activebtn"> All Properties</button>
-        </span>
-        <span id="petFriendlyLink" class="nav__link">
-            <button> Pet Friendly</button>
-        </span>
-        <span id="familyFriendlyLink" class="nav__link">
-            <button> Family Friendly</button>
-        </span>
-        <span id="luxuryLink" class="nav__link">
-            <button> Luxury</button>
-        </span>
-    </div>
-    <div class="responsive-menu ">
-        <select id="propertySelect" class="select">
-            <option>All Properties</option>
-            <option>Pet Friendly</option>
-            <option>Family Friendly</option>
-            <option>Luxury</option>
-        </select>
-    </div>
-    <div id="country"></div>
-    <script>
-        let allData = [];
-        let filteredData = [];
+    <title>Template</title>
+    </head>
 
-        function fetchData() {
-            fetch("data.json")
-                .then((res) => res.json())
-                .then((data) => {
-                    allData = data.result;
-                    filteredData = allData;
-                    renderProperties(filteredData);
-                })
-                .catch((error) => {
-                    console.log(`Error Fetching data: ${error}`);
-                    document.getElementById("country").innerHTML = "Error Loading Data";
-                });
-        }
-        fetchData();
-        function renderStarRating(rating) {
-            const maxRating = 5;
-            let stars = '';
-            for (let i = 1; i <= maxRating; i++) {
-                if (rating >= i) {
-                    stars += '<span class="fa fa-star checked"></span>';
-                } else {
-                    stars += '<span class="fa star">&#xf006;</span>';
-                }
-            }
-            return stars;
-        }
-        function renderProperties(properties) {
-            let output = "";
-            properties.forEach(function (item) {
-                var createdAt = new Date(item.createdAt);
-                var isValidDate = !isNaN(createdAt);
+    <body>
+        <!--------------------------- NAVBAR ------------------------------>
 
-                var date = isValidDate
-                    ? createdAt.toLocaleDateString("en-US", {
-                        year: "numeric",
-                        month: "long",
-                        day: "numeric"
-                    })
-                    : "Invalid Date";
+        <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+            <h1 class="text-logo" href="#"><i class="fa fa-utensils utensils me-3"></i>Restoran</h1>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link text-warning" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Menu</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button"
+                            data-toggle="dropdown">Pages</a>
+                        <div class="dropdown-menu" aria-labelledby="pagesDropdown">
+                            <a class="dropdown-item" href="#">Pages</a>
+                            <a class="dropdown-item" href="#">Pages No</a>
+                            <a class="dropdown-item" href="#">Other</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <button type="button" class="btn-book py-2 px-2">Book a Table</button>
+                    </li>
+                </ul>
+            </div>
+        </nav>
 
-                // const firstImage = item.image[0];
 
-                const amenities = item.amenities || [];
+        <!--------------------------- BG-HOME PAGE IMAGE ------------------------------>
 
-                const amenitiesHtml = amenities
-                    .map((amenity) => `<div class="amenity">${amenity}</div>`)
-                    .join("");
-                output += `
-                <div class="card-list">
-                    <div class="card">
-                        <img class="card-img-top" src="${item.image[0]}" alt="Card image">
-                         <div class = "card-body">
-                          <div class = "content">
-                               <h3 class="title">${item.title.slice(0, 25)}</h3>   
-                               <div class="price">${item.price[0].currency?.split(" ")[0] || "$"} ${item.price[0].number || 0}</div>
-                            </div>
-                              <div class="location_name">${item.location_name}</div>
-                              <div class="line"></div>
-                                <div class="review">
-                                 <div class="date">${date}</div>
-                                 <span class="ratingstar">${renderStarRating(item.property_reviews)}</span>
-                                </div>
-                          </div>
+        <div class="container-xxl py-5 hero-bg mb-5">
+            <div class="container-fluid my-5 py-5">
+                <div class="row align-items-center g-5">
+                    <div class="col-lg-6 text-lg-start order-lg-first contain-text">
+                        <h1 class="display-3 text-white my-5">Enjoy Our<br>Delicious Meal</h1>
+                        <p class="text-white mb-4 pb-2">Tempor erat elitr rebum at clita. Diam
+                            dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed
+                            stet lorem sit clita duo justo magna dolore erat amet</p>
+                        <button type="button" class="btn-table py-3 px-5">Book a Table</button>
+                    </div>
+                    <div class="col-lg-6 text-center text-lg-end overflow-hidden order-lg-last">
+                        <img class="img-fluid bg-img" src="images/hero.png" alt="">
                     </div>
                 </div>
-                `;
+                <!-- <hr class="line" /> -->
+            </div>
+        </div>
+
+
+        <!--------------------------- CARD ------------------------------>
+
+        <div class="py-4">
+            <div class="container-fluid">
+                <div class="row g-4">
+                    <div class="col-sm-6 col-lg-3">
+                        <div class="s-item">
+                            <div class="p-4">
+                                <i class="fa fa-3x fa-user-tie text-warning mb-3"></i>
+                                <h5>Master Chefs</h5>
+                                <p>Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita amet diam</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-3">
+                        <div class="s-item">
+                            <div class="p-4">
+                                <i class="fa fa-3x fa-utensils text-warning mb-3"></i>
+                                <h5>Quality Food</h5>
+                                <p>Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita amet diam</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-3">
+                        <div class="s-item">
+                            <div class="p-4">
+                                <i class="fa fa-3x fa-cart-plus text-warning mb-3"></i>
+                                <h5>Online Order</h5>
+                                <p>Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita amet diam</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-3">
+                        <div class="s-item">
+                            <div class="p-4">
+                                <i class="fa fa-3x fa-headset text-warning mb-3"></i>
+                                <h5>24/7 Service</h5>
+                                <p>Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita amet diam</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-------------------------------------------------  IMAGES-ABOUT US ------------------------------>
+
+        <div class="container-xxl py-4">
+            <div class="container-fluid">
+                <div class="row g-0 align-items-center">
+                    <div class="col-lg-6">
+                        <div class="row">
+                            <div class="col-6">
+                                <img class="image img-fluid w-100" src="images/about-1.jpg" alt="Image 1">
+                                <img class="image img-fluid w-75 image-2" src="images/about-2.jpg" alt="Image 2">
+                            </div>
+                            <div class="col-6">
+                                <img class="image img-fluid w-75 image-3" src="images/about-3.jpg" alt="Image 3">
+                                <img class="image img-fluid w-100 image-4" src="images/about-4.jpg" alt="Image 4">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <h5 class="text-start text-warning about-text"><span>About Us</span></h5>
+                        <h2 class="wel">Welcome to <i class="fa fa-utensils text-warning"></i> Restoran</h2>
+
+                        <p class="contents">Tempore erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam
+                            amet diam et eos erat ipsum et lorem et sit, sed stet lorem sit.
+                        </p>
+
+                        <p class="contents">Tempore erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam
+                            amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo manga
+                            dolore arat amet
+                        </p>
+                        <div class="row g-4 mb-4">
+                            <div class="col-sm-6">
+                                <div class="d-flex align-items-center px-3">
+                                    <h1 class=" text-warning">|&nbsp;15</h1>
+                                    <div class="ps-4">
+                                        <div class="year-popular mb-0">Years of</div>
+                                        <div class="bold mb-0">Experience</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="d-flex align-items-center px-3">
+                                    <h1 class="text-warning">|&nbsp;50</h1>
+                                    <div class="ps-4">
+                                        <div class="year-popular mb-0">Popular</div>
+                                        <div class="bold mb-0">Master Chefs</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <button type="button" class="btn-book py-2 px-4" style="margin-top: 20px;">READ
+                                MORE</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--------------------------------------------- ICONS ----------------------------------------------------->
+
+        <div class="container py-4">
+            <!-- <div class="container"> -->
+            <div class="text-center">
+                <h5 class="text-center text-warning">__Food Menu__</h5>
+                <h1 class="mb-5">Most Popular Items</h1>
+            </div>
+            <div class="text-center">
+                <ul class="nav d-inline-flex justify-content-center">
+                    <li class="">
+                        <div class="d-flex align-items-center text-start mx-3">
+                            <i class="fa fa-coffee fa-2x text-warning"></i>
+                            <div class="ps-3">
+                                <div class="food-item">Popular</div>
+                                <h6 class="mx-1 bold-text">Breakfast</h6>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="">
+                        <div class="d-flex align-items-center text-start mx-3 pb-3">
+                            <i class="fa fa-hamburger fa-2x text-warning"></i>
+                            <div class="ps-3">
+                                <div class="food-item">Special</div>
+                                <h6 class="mx-2 bold-text">Launch</h6>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="">
+                        <div class="d-flex align-items-center text-start mx-3 pb-3">
+                            <i class="fa fa-utensils fa-2x text-warning"></i>
+                            <div class="ps-3">
+                                <div class="food-item">Lovely</div>
+                                <h6 class="mx-2 bold-text">Dinner</h6>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <!-- </div> -->
+        </div>
+        <!-------------------------------- ITEM LIST ------------------------------>
+
+        <div class="container py-4">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="d-flex align-items-center">
+                            <img class="img-fluid rounded" src="images/menu-1.jpg" alt="menu-1" style="width: 80px;">
+                            <div class="w-100 d-flex flex-column">
+                                <div class="d-flex border-bottom m-2 pb-2 justify-content-between">
+                                    <h6>Chicken Burger</h6>
+                                    <span class="text-warning "><b>$115</b></span>
+                                </div>
+                                <p class="m-2 pb-0 one-line">Ipsum ipsum clita erat amet dolor justo diam
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="d-flex align-items-center">
+                            <img class="img-fluid rounded" src="images/menu-2.jpg" alt="menu-2" style="width: 80px;">
+                            <div class="w-100 d-flex flex-column">
+                                <div class="d-flex border-bottom m-2 pb-2 justify-content-between">
+                                    <h6>Chicken Burger</h6>
+                                    <span class="text-warning"><b>$115</b></span>
+                                </div>
+                                <p class="m-2 pb-0 one-line">Ipsum ipsum clita erat amet dolor justo diam
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="d-flex align-items-center">
+                            <img class="img-fluid rounded" src="images/menu-3.jpg" alt="menu-3" style="width: 80px;">
+                            <div class="w-100 d-flex flex-column">
+                                <div class="d-flex border-bottom m-2 pb-2 justify-content-between">
+                                    <h6>Chicken Burger</h6>
+                                    <span class="text-warning"><b>$115</b></span>
+                                </div>
+                                <p class="m-2 pb-0 one-line">Ipsum ipsum clita erat amet dolor justo diam
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="d-flex align-items-center">
+                            <img class="img-fluid rounded" src="images/menu-4.jpg" alt="menu-4" style="width: 80px;">
+                            <div class="w-100 d-flex flex-column">
+                                <div class="d-flex border-bottom m-2 pb-2 justify-content-between">
+                                    <h6>Chicken Burger</h6>
+                                    <span class="text-warning"><b>$115</b></span>
+                                </div>
+                                <p class="m-2 pb-0 one-line">Ipsum ipsum clita erat amet dolor justo diam
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="d-flex align-items-center">
+                            <img class="img-fluid rounded" src="images/menu-5.jpg" alt="menu-5" style="width: 80px;">
+                            <div class="w-100 d-flex flex-column">
+                                <div class="d-flex border-bottom m-2 pb-2 justify-content-between">
+                                    <h6>Chicken Burger</h6>
+                                    <span class="text-warning"><b>$115</b></span>
+                                </div>
+                                <p class="m-2 pb-0 one-line">Ipsum ipsum clita erat amet dolor justo diam
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <div class="d-flex align-items-center">
+                            <img class="img-fluid rounded" src="images/menu-6.jpg" alt="menu-6" style="width: 80px;">
+                            <div class="w-100 d-flex flex-column">
+                                <div class="d-flex border-bottom m-2 pb-2 justify-content-between">
+                                    <h6>Chicken Burger</h6>
+                                    <span class="text-warning"><b>$115</b></span>
+                                </div>
+                                <p class="m-2 pb-0 one-line">Ipsum ipsum clita erat amet dolor justo diam
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="d-flex align-items-center">
+                            <img class="img-fluid rounded" src="images/menu-7.jpg" alt="menu-7" style="width: 80px;">
+                            <div class="w-100 d-flex flex-column">
+                                <div class="d-flex border-bottom m-2 pb-2 justify-content-between">
+                                    <h6>Chicken Burger</h6>
+                                    <span class="text-warning"><b>$115</b></span>
+                                </div>
+                                <p class="m-2 pb-0 one-line">Ipsum ipsum clita erat amet dolor justo diam
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="d-flex align-items-center">
+                            <img class="img-fluid rounded" src="images/menu-8.jpg" alt="menu-8" style="width: 80px;">
+                            <div class="w-100 d-flex flex-column">
+                                <div class="d-flex border-bottom m-2 pb-2 justify-content-between">
+                                    <h6>Chicken Burger</h6>
+                                    <span class="text-warning"><b>$115</b></span>
+                                </div>
+                                <p class="m-2 pb-0 one-line">Ipsum ipsum clita erat amet dolor justo diam
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--------------------------------------- VIDEO-RESERVATION TABLE ------------------------------>
+        <div class="container-xxl py-4 px-0">
+            <div class="container-fluid">
+                <div class="row g-0">
+                    <div class="col-lg-6 px-0 col-md-12">
+                        <video
+                            src="https://cdn.pixabay.com/vimeo/231581056/sizzling-11632.mp4?width=640&hash=1d9e554861c4f6a4d75fc262ca6a830b99aae6aa"
+                            class="video-re w-100" controls></video>
+                    </div>
+                    <div class="col-lg-6 px-0 mx-0 col-md-12">
+                        <form class="form-clr">
+                            <p class="Reservation">Reservation__</p>
+                            <h3 class="book-table">Book a Table Online</h3>
+                            <div class="row">
+                                <div class="mb-3 col-md-6">
+                                    <input type="text" class="form-control" id="name" placeholder="Enter Your Name"
+                                        required>
+                                </div>
+                                <div class="mb-3 col-md-6">
+                                    <input type="email" class="form-control" id="email" placeholder="Enter Your Email"
+                                        required>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <input type="datetime" class="form-control" id="datetime" placeholder="Date & Time"
+                                        required>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <select class="form-control">
+                                        <option class="">No Of People</option>
+                                        <option>People1</option>
+                                        <option>People2</option>
+                                        <option>People3</option>
+                                        <option>People4</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <textarea class="form-control" id="special-request" rows="3"
+                                    placeholder="Special Request"></textarea>
+                            </div>
+                            <button type="submit" class="btn-book-now w-100">Book Now</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--------------------------------- CARD-TEAM MEMBER -------------------------------------->
+
+        <div class="container-fluid my-3">
+            <div class="align-items-center">
+                <div class="team-membr text-center">__Team Members__</div>
+                <h2 class="text-center master-chefs">Our Master Chefs</h2>
+            </div>
+            <div class="py-3">
+                <div class="container-fluid">
+                    <div class="row g-4">
+                        <div class="col-sm-6 col-lg-3">
+                            <div class="s-item">
+                                <div class="p-4">
+                                    <img src="images/team-1.jpg" class="img-fluid rounded-circle mb-3" alt="team-1">
+                                    <h5 class="text-center">Full Name</h5>
+                                    <p class="text-center">Designation</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-3">
+                            <div class="s-item">
+                                <div class="p-4">
+                                    <img src="images/team-2.jpg" class="img-fluid rounded-circle mb-3" alt="team-2">
+                                    <h5 class="text-center">Full Name</h5>
+                                    <p class="text-center">Designation</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-3">
+                            <div class="s-item">
+                                <div class="p-4">
+                                    <img src="images/team-3.jpg" class="img-fluid rounded-circle mb-3" alt="team-3">
+                                    <h5 class="text-center">Full Name</h5>
+                                    <p class="text-center">Designation</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-3">
+                            <div class="s-item">
+                                <div class="p-4">
+                                    <img src="images/team-4.jpg" class="img-fluid rounded-circle mb-3" alt="team-4">
+                                    <h5 class="text-center">Full Name</h5>
+                                    <p class="text-center">Designation</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--------------------------- SLIDER-IMAGES ------------------------------>
+
+        <div class="container-fluid py-4">
+            <div class="testimonial text-center">__Testimonial__</div>
+            <h2 class="text-center master-chefs">Our Clients Say!!!</h2>
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="owl-carousel owl-theme" id="myCarousel">
+                        <div class="item">
+                            <div class="py-3">
+                                <div class="border rounded p-3">
+                                    <div><i class="fas fa-quote-left quote text-warning"></i></div>
+                                    <p>Dolor et eos labore, stet justo sed est sed. Diam sed sed dolor stet
+                                        amet eirmod
+                                        eos labore
+                                        diam</p>
+                                    <div class="d-flex align-items-center">
+                                        <img class="img-fluid rounded-circle" src="images/testimonial-1.jpg"
+                                            style="width: 70px; height: 70px;">
+                                        <div class="p-3">
+                                            <h6 class="card-title font-weight-bold text-design">Client Name
+                                            </h6>
+                                            <p class="card-text text-design">Profession</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="py-3">
+                                <div class="border rounded p-3 bg-clr">
+                                    <div><i class="fas fa-quote-left quote text-clr text-white"></i></div>
+                                    <p class="text-clr">Dolor et eos labore, stet justo sed est sed. Diam
+                                        sed sed dolor
+                                        stet amet eirmod eos labore
+                                        diam</p>
+                                    <div class="d-flex align-items-center">
+                                        <img class="img-fluid rounded-circle" src="images/testimonial-2.jpg"
+                                            style="width: 70px; height: 70px;">
+                                        <div class="p-3">
+                                            <h6 class="card-title text-clr">Client Name</h6>
+                                            <p class="card-text text-clr">Profession</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="py-3">
+                                <div class="border rounded p-3">
+                                    <div><i class="fas fa-quote-left quote text-warning"></i></div>
+                                    <p>Dolor et eos labore, stet justo sed est sed. Diam sed sed dolor stet
+                                        amet eirmod
+                                        eos labore
+                                        diam</p>
+                                    <div class="d-flex align-items-center">
+                                        <img class="img-fluid rounded-circle" src="images/testimonial-3.jpg"
+                                            style="width: 70px; height: 70px;">
+                                        <div class="p-3">
+                                            <h6 class="card-title font-weight-bold text-design">Client Name
+                                            </h6>
+                                            <p class="card-text text-design">Profession</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="py-3">
+                                <div class="border rounded p-3">
+                                    <div><i class="fas fa-quote-left quote text-warning"></i></div>
+                                    <p>Dolor et eos labore, stet justo sed est sed. Diam sed sed dolor stet
+                                        amet eirmod
+                                        eos labore
+                                        diam</p>
+                                    <div class="d-flex align-items-center">
+                                        <img class="img-fluid rounded-circle" src="images/testimonial-4.jpg"
+                                            style="width: 70px; height: 70px;">
+                                        <div class="p-3">
+                                            <h6 class="card-title font-weight-bold text-design">Client Name
+                                            </h6>
+                                            <p class="card-text text-design">Profession</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--------------------------- FOOTER ------------------------------>
+
+        <footer class="mainfooter my-5" role="contentinfo">
+            <div class="footer-middle">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-3 col-sm-6">
+                            <div class="footer-pad">
+                                <h5 class="footer-title">Company__</h5>
+                                <ul class="list-unstyled footer-list">
+                                    <li><span class="arrow">&#62;</span> About Us</li>
+                                    <li><span class="arrow">&#62;</span> Contact Us</li>
+                                    <li><span class="arrow">&#62;</span> Reservation</li>
+                                    <li><span class="arrow">&#62;</span> Privacy Policy</li>
+                                    <li><span class="arrow">&#62;</span> Terms & Condition</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-6">
+                            <div class="footer-pad">
+                                <h5 class="footer-title">Contact__</h5>
+                                <ul class="list-unstyled footer-list">
+                                    <li><a href="#"></a></li>
+                                    <li><i class="bi-geo-alt-fill"></i> 123 Street, New York, USA</li>
+                                    <li><i class="bi-telephone-fill"></i> +012 345 67890</li>
+                                    <li><i class="bi-envelope-fill"></i> Info@example.com</li>
+                                    <li>
+                                        <a href="#" class="btn btn-outline-light btn-floating rounded-circle btn-sm"
+                                            role="button">
+                                            <i class="fab fa-twitter"></i>
+                                        </a>
+                                        <a href="#" class="btn btn-outline-light btn-floating rounded-circle btn-sm"
+                                            role="button">
+                                            <i class="fab fa-facebook-f"></i>
+                                        </a>
+                                        <a href="#" class="btn btn-outline-light btn-floating rounded-circle btn-sm"
+                                            role="button">
+                                            <i class="fab fa-youtube"></i>
+                                        </a>
+                                        <a href="#" class="btn btn-outline-light btn-floating rounded-circle btn-sm"
+                                            role="button">
+                                            <i class="fab fa-linkedin-in"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-6">
+                            <div class="footer-pad">
+                                <h5 class="footer-title">Opening__</h5>
+                                <ul class="list-unstyled footer-list">
+                                    <li>
+                                        <h6>Monday - Saturday</h6>
+                                    </li>
+                                    <li>
+                                        <div class="text-small">09AM - 09PM</div>
+                                    </li>
+                                    <li>
+                                        <h6>Sunday</h6>
+                                    </li>
+                                    <li>
+                                        <div class="text-small">10AM - 8PM</div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-6">
+                            <div class="footer-pad">
+                                <h5 class="footer-title">Newsletter__</h5>
+                                <ul class="list-unstyled footer-list">
+                                    <li>
+                                        <div>Dolor amet sit justo amet elitr clita ipsum elitr est.</div>
+                                    </li>
+                                    <li>
+                                        <div class="input-group singup-btn">
+                                            <input type="text" class="form-control input-singup"
+                                                placeholder="Your email">
+                                            <button class="btn bg-warning text-white btn-sm mt-1 mx-2"
+                                                type="submit">SIGNUP</button>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr class="footer-line" />
+            <div class="container-fluid footer-bottom">
+                <div class="row">
+                    <div class="col-md-6 col-12 text-center text-md-left">
+                        &copy; <a class="border-bottom" href="#">Your Site Name</a>, All Rights Reserved.
+                        Designed By <a class="border-bottom" href="#">HTML Codex</a>
+                        <br><br>
+                        Distributed By <a class="border-bottom" href="#" target="_blank">ThemeWagon</a>
+                    </div>
+                    <div class="col-md-6 col-12 text-center text-md-left">
+                        <div class="footer-menu text-md-right">
+                            <span><a href="">Home</a></span>
+                            <span class="vertical-line"></span>
+                            <span><a href="">Cookies</a></span>
+                            <span class="vertical-line"></span>
+                            <span><a href="">Help</a></span>
+                            <span class="vertical-line"></span>
+                            <span><a href="">FAQs</a></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            </div>
+        </footer>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+        <script>
+            $(document).ready(function () {
+                $('#myCarousel').owlCarousel({
+                    loop: true,
+                    margin: 10,
+                    dots: true,
+                    autoplay: true,
+                    autoplayTimeout: 3000,
+                    responsive: {
+                        0: {
+                            items: 1
+                        },
+                        767: {
+                            items: 2
+                        },
+                        992: {
+                            items: 3
+                        }
+                    }
+                });
             });
-            document.getElementById("country").innerHTML = output;
-        }
-        function showAllProperties() {
-            filteredData = allData.filter((item) => item.filter.includes('All Property'));
-            renderProperties(filteredData);
-        }
-        function showPetFriendly() {
-            filteredData = allData.filter((item) => item.filter.includes('Pet Friendly'));
-            renderProperties(filteredData);
-        }
-        function showFamilyFriendly() {
-            filteredData = allData.filter((item) => item.filter.includes('Family Friendly'));
-            renderProperties(filteredData);
-        }
-        function showLuxury() {
-            filteredData = allData.filter((item) => item.filter.includes('Luxury'));
-            renderProperties(filteredData);
-        }
-        function handleFilter(filter) {
-
-            allPropertiesLink.classList.remove('active');
-            petFriendlyLink.classList.remove('active');
-            familyFriendlyLink.classList.remove('active');
-            luxuryLink.classList.remove('active');
-
-            if (filter === '') {
-                allPropertiesLink.classList.add('active');
-            } else if (filter === 'Pet Friendly') {
-                petFriendlyLink.classList.add('active');
-            } else if (filter === 'Family Friendly') {
-                familyFriendlyLink.classList.add('active');
-            } else if (filter === 'Luxury') {
-                luxuryLink.classList.add('active');
-            }
-
-            propertySelect.value = filter;
-
-            if (filter === '') {
-                filteredData = allData;
-            } else {
-                filteredData = allData.filter((item) => item.tags && item.tags.includes(filter));
-            }
-
-            renderProperties(filteredData);
-        }
-        const allPropertiesLink = document.getElementById('allPropertiesLink');
-        const petFriendlyLink = document.getElementById('petFriendlyLink');
-        const familyFriendlyLink = document.getElementById('familyFriendlyLink');
-        const luxuryLink = document.getElementById('luxuryLink');
-        const propertySelect = document.getElementById('propertySelect');
-
-        allPropertiesLink.addEventListener('click', () => (''));
-        petFriendlyLink.addEventListener('click', () => showPetFriendly()('Pet Friendly'));
-        familyFriendlyLink.addEventListener('click', () => showFamilyFriendly()('Family Friendly'));
-        luxuryLink.addEventListener('click', () => showLuxury()('Luxury'));
-        //propertySelect.addEventListener('change', (event) => showAllProperties()(''));
-        propertySelect.addEventListener('change', (event) => {
-            const selectedFilter = event.target.value;
-            renderProperties(filteredData);
-        });
-
-    </script>
-</body>
+        </script>
+    </body>
 
 </html>

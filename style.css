@@ -1,0 +1,908 @@
+.utensils {
+  color: orange;
+  margin-right: 15px;
+}
+.text-logo {
+  color: #ffb300;
+}
+.btn-book {
+  background: #f19304;
+  text-transform: uppercase;
+  color: white;
+  border: none;
+}
+.btn-table {
+  border: none;
+  background: rgb(236, 156, 5);
+  color: white;
+  text-transform: uppercase;
+}
+.btn {
+  border: none;
+  text-transform: uppercase;
+  color: rgb(161, 161, 161);
+  font-size: 20px;
+}
+.hero-bg {
+  background: linear-gradient(#252222, rgba(21, 29, 48, 0.9)),
+    url(images/bg-hero.jpg);
+  background-size: cover;
+}
+.nav-item {
+  text-transform: uppercase;
+  font-family: "Nunito";
+  font-weight: 500;
+}
+.bg-img {
+  margin: 30px 0;
+}
+.text-white {
+  font-weight: bold;
+  font-family: "Nunito";
+}
+.s-item {
+  box-shadow: 0px 1px 10px 0px rgb(221, 221, 221);
+}
+/* .image {
+  margin: 10px 0 20px 0;
+} */
+.navbar-nav {
+  margin-left: auto;
+}
+.line {
+  background: rgb(82, 81, 81);
+  height: 0.1px;
+  width: 100%;
+  margin: -32px 0px 15px 0px;
+}
+.contents {
+  font-size: 13px;
+  color: gray;
+  font-family: "Nunito";
+}
+.one {
+  color: #f19304;
+  font-size: 40px;
+}
+.year-popular {
+  color: grey;
+  /* margin-left: 15px; */
+}
+.bold {
+  font-weight: bold;
+  font-size: 15px;
+  text-transform: uppercase;
+  /* margin-left: 15px; */
+}
+.food-item{
+  color: grey;
+  /* text-transform: lowercase; */
+}
+.bold-text{
+  font-weight: bold;
+  color: black;
+  /* text-transform: lowercase; */
+}
+.wel {
+  font-weight: bold;
+  font-family: "Nunito";
+}
+.number {
+  font-family: "Nunito";
+}
+.header{
+  font-weight: bold;
+  font-size: 20px;
+}
+
+/* --------------------------food menu-------------------------- */
+.food-menu {
+  text-align: center;
+  font-weight: bold;
+  font-family: 'Nunito';
+}
+/* 
+.food-text{
+  width: 15%; 
+   text-align: center; 
+   border-bottom: 2px solid #f19304; 
+   line-height: 0.1em;
+   margin: 10px 0 20px; 
+}
+.food-text span { 
+  background:#fff; 
+  padding:0 10px; 
+} */
+/* .food-menu {
+  display: flex;
+  flex-direction: row;
+}
+
+.food-menu:before,
+.food-menu:after {
+  content: "";
+  flex: 1 1;
+  border-bottom: 2px solid #fa8806;
+  margin: auto;
+} */
+.items {
+  font-family: "Nunito";
+  font-weight: bold;
+  text-align: center;
+}
+.fa-coffee {
+  font-size: 25px;
+}
+.coffee {
+  text-align: center;
+}
+.one-line {
+  color: grey;
+  font-size: 15px;
+}
+.form-clr {
+  background: linear-gradient(#06081b, #061324);
+  padding: 20px;
+}
+
+/* ----------------------------------------reservation table ------------------------*/
+.Reservation {
+  color: #f19304;
+  font-family: "Nunito";
+  /* width: 22%; 
+   border-bottom: 2px solid #f19304; 
+   line-height: 0.1em;
+   margin: 18px 0 20px;  */
+}
+/* .Reservation span { 
+  background:#06081b; 
+  padding:0 10px; 
+} */
+
+.book-table {
+  color: white;
+}
+.btn-book-now {
+  background: #da8507;
+  text-transform: uppercase;
+  height: 45px;
+  color: white;
+  font-size: 15px;
+  border: none;
+}
+/* --------------------------------- owl - carousel - ---------------------------------------------------------- */
+.team-membr {
+  color: #f19304;
+  align-items: center;
+}
+.master-chefs {
+  font-family: "Nunito";
+  font-weight: bold;
+}
+.testimonial {
+  color: #ee930b;
+  font-family: "Nunito";
+}
+.quote {
+  font-size: 30px;
+  margin: 15px;
+  color: #f19304;
+}
+.bg-clr {
+  background-color: darkorange !important;
+  font-weight: normal;
+}
+.text-clr {
+  color: white;
+  font-family: "Nunito";
+}
+.text-design {
+  font-family: "Nunito";
+}
+
+/* ----------------------------------------about us page--------------------- */
+
+/* .about-text{
+  width: 20%; 
+  border-bottom: 2px solid #f19304; 
+  line-height: 0.1em;
+  margin: 10px 0 20px; 
+}
+.about-text  span { 
+  background:#fff; 
+  padding:0 10px; 
+} */
+/* --------------------------------card slider------------------ */
+/* .card-slider {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+
+.card-slider {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+
+.card {
+  flex: 0 0 auto;
+  width: 400px;
+  height: 220px;
+}
+
+.card-slider-indicators {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.card-slider-indicators .indicator {
+  width: 10px;
+  height: 10px;
+  background-color: #bbb;
+  border-radius: 50%;
+  margin: 0 5px;
+  cursor: pointer;
+}
+
+.card-slider-indicators .active {
+  background-color: #333;
+}
+
+.card img {
+  height: 120px;
+  width: 120px;
+}
+
+.carousel-inner {
+  height: 100%;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+  width: 50px;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  font-size: 1.5rem;
+  line-height: 2.5;
+} */
+/* -----------------footer---------------- */
+footer {
+  color: white;
+}
+footer a {
+  color: #bfffff;
+}
+footer a:hover {
+  color: white;
+}
+
+.footer-bottom {
+  background: #080b16;
+  padding: 2em;
+}
+.footer-top {
+  background: #080b16;
+}
+.footer-middle {
+  background: #080b16;
+  padding-top: 2em;
+  color: white;
+}
+.vertical-line {
+  border-left: 1px solid #c0c0c0;
+  height: 12px;
+  margin: 0 10px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/* ------------------ arrow ------------------------ */
+.arrow {
+  display: inline-block;
+  margin-right: 5px;
+  font-weight: normal;
+  font-size: 12px;
+}
+/* ------------------underline------------------- */
+.underline {
+  text-decoration: underline;
+}
+
+.spaced {
+  margin-right: 10px;
+}
+
+.line-break {
+  display: block;
+  margin: 5px 0;
+}
+
+.footer-line {
+  background: rgb(204, 202, 202);
+  margin: 0px;
+}
+.footer-title {
+  font-family: cursive;
+  color: #f19304;
+}
+.singup-btn {
+  position: relative;
+}
+.singup-btn .btn {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+/* .btn-sing{
+  color: #f19304 !important;
+} */
+.text-small {
+  font-size: 12px;
+}
+.image-2 {
+  margin-left: 70px;
+  margin-top: -10px;
+}
+.image-3 {
+  padding-top: 30px;
+  margin-left: -19px;
+}
+.image-4 {
+  margin-top: -60px;
+  margin-left: -20px;
+}
+/* -------------  video  -------------------------- */
+.video-re {
+  width: 100%;
+  /* height: 100%; */
+}
+.container-fluid.py-4 {
+  margin-bottom: -20px;
+}
+@media (max-width: 992px) {
+  .contain-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+}
+/* ----------------------------------------------------------------------------------------- */
+
+/* @media (min-width: 1500px) {
+  .text-lg-start {
+    text-align: left !important;
+  }
+} */
+
+/* @media (max-width: 768px) {
+  .col-lg-6.text-center.text-lg-start {
+    text-align: center !important;
+  }
+  .col-lg-6.text-center.text-lg-end {
+    text-align: center !important;
+  }
+  .col-lg-6.text-center.text-lg-end img {
+    margin: 15px auto;
+    display: block;
+  }
+} */
+
+/* -------------------  CARD -------------------- */
+
+/* @media (min-width: 768px) {
+  .row.g-4 {
+    margin-bottom: -1rem;
+  }
+  .p-4 {
+    margin-top: 15px;
+  }
+} */
+/* @media (min-width: 480px) {
+  .row.g-4 {
+    margin-bottom: -1rem;
+  }
+  .p-4 {
+    margin-top: 15px;
+  }
+} */
+
+@media (min-width: 275px) {
+  .row.g-4 {
+    margin-bottom: -1rem;
+  }
+  .p-4 {
+    margin-top: 15px;
+  }
+}
+@media (min-width: 375px) {
+  .row.g-4 {
+    margin-bottom: -1rem;
+  }
+  .p-4 {
+    margin-top: 15px;
+  }
+}
+/* ------------------------------------------  IMAGES ---------------------------------- */
+
+@media (min-width: 200px) {
+  .image-2 {
+    margin-left: 25px;
+    margin-top: 10px;
+  }
+  .image-3 {
+    padding-top: 25px;
+    margin-left: -19px;
+  }
+  .image-4 {
+    margin-top: 10px;
+    margin-left: -20px;
+  }
+}
+@media screen and (min-device-width: 275px) and (max-device-width: 284px) {
+  .image-2 {
+    margin-left: 20px;
+    margin-top: 10px;
+  }
+  .image-3 {
+    padding-top: 20px;
+    margin-left: -19px;
+  }
+  .image-4 {
+    margin-top: 10px;
+    margin-left: -20px;
+  }
+}
+@media screen and (min-width: 285px) and (min-width: 375px) {
+  .image-2 {
+    margin-left: 45px;
+    margin-top: 10px;
+  }
+  .image-3 {
+    padding-top: 47px;
+    margin-left: -19px;
+  }
+  .image-4 {
+    margin-top: 10px;
+    margin-left: -20px;
+  }
+}
+@media screen and (min-width: 376px) and (min-width: 479px) {
+  .image-2 {
+    margin-left: 25px;
+    margin-top: 10px;
+  }
+  .image-3 {
+    padding-top: 27px;
+    margin-left: -19px;
+  }
+  .image-4 {
+    margin-top: 10px;
+    margin-left: -20px;
+  }
+}
+@media (min-width: 480px) {
+  .image-2 {
+    margin-left: 60px;
+    margin-top: 10px;
+  }
+  .image-3 {
+    /* padding-top: -10px; */
+    margin-bottom: 15px;
+    /* margin-left: -19px; */
+    margin-bottom: -5px;
+  }
+  .image-4 {
+    margin-top: 20px;
+    margin-left: -20px;
+  }
+}
+/* @media (min-device-width: 1024px) {
+  .image-2 {
+    margin-left: 75px;
+    margin-top: 10px;
+  }
+  .image-3 {
+    padding-top: 80px;
+    margin-left: -19px;
+  }
+  .image-4 {
+    margin-top: 17px;
+    margin-left: -20px;
+  }
+} */
+@media screen and (min-device-width: 481px) and (max-device-width: 575px) {
+  .image-2 {
+    margin-left: 48px;
+    margin-top: 10px;
+  }
+  .image-3 {
+    padding-top: 50px;
+    margin-left: -19px;
+  }
+  .image-4 {
+    margin-top: 10px;
+    margin-left: -20px;
+  }
+}
+@media screen and (min-device-width: 576px) and (max-device-width: 667px) {
+  .image-2 {
+    margin-left: 65px;
+    margin-top: 10px;
+  }
+  .image-3 {
+    padding-top: 65px;
+    margin-left: -19px;
+  }
+  .image-4 {
+    margin-top: 20px;
+    margin-left: -20px;
+  }
+}
+@media screen and (min-device-width: 668px) and (max-device-width: 767px) {
+  .image-2 {
+    margin-left: 85px;
+    margin-top: 10px;
+  }
+  .image-3 {
+    padding-top: 85px;
+    margin-left: -19px;
+  }
+  .image-4 {
+    margin-top: 15px;
+    margin-left: -20px;
+  }
+}
+@media screen and (min-device-width: 768px) and (max-device-width: 868px) {
+  .image-2 {
+    margin-left: 90px;
+    margin-top: 10px;
+  }
+  .image-3 {
+    padding-top: 96px;
+    margin-left: -19px;
+  }
+  .image-4 {
+    margin-top: 10px;
+    margin-left: -20px;
+  }
+}
+
+
+@media screen and (min-device-width: 869px) and (max-device-width: 968px) {
+  .image-2 {
+    margin-left: 100px;
+    margin-top: 10px;
+  }
+  .image-3 {
+    padding-top: 96px;
+    margin-left: -19px;
+  }
+  .image-4 {
+    margin-top: 10px;
+    margin-left: -20px;
+  }
+}
+@media screen and (min-device-width: 969px) and (max-device-width: 1023px) {
+  .image-2 {
+    margin-left: 52px;
+    margin-top: 10px;
+  }
+  .image-3 {
+    padding-top: 55px;
+    margin-left: -19px;
+  }
+  .image-4 {
+    margin-top: 15px;
+    margin-left: -20px;
+  }
+}
+
+@media screen and (min-device-width: 1024px) and (max-device-width: 1050px) {
+  .image-2 {
+    margin-left: 55px;
+    margin-top: 10px;
+  }
+  .image-3 {
+    padding-top: 57px;
+    margin-left: -19px;
+  }
+  .image-4 {
+    margin-top: 10px;
+    margin-left: -20px;
+  }
+}
+@media screen and (min-device-width: 1051px) and (max-device-width: 1180px) {
+  .image-2 {
+    margin-left: 60px;
+    margin-top: 10px;
+  }
+  .image-3 {
+    padding-top: 68px;
+    margin-left: -19px;
+  }
+  .image-4 {
+    margin-top: 10px;
+    margin-left: -20px;
+  }
+}
+
+@media screen and (min-device-width: 1181px) and (max-device-width: 1280px) {
+  .image-2 {
+    margin-left: 70px;
+    margin-top: 10px;
+  }
+  .image-3 {
+    padding-top: 75px;
+    margin-left: -15px;
+  }
+  .image-4 {
+    margin-top: 15px;
+    margin-left: -20px;
+  }
+}
+@media screen and (min-device-width: 1281px) and (max-device-width: 1380px) {
+  .image-2 {
+    margin-left: 70px;
+    margin-top: 10px;
+  }
+  .image-3 {
+    padding-top: 70px;
+    margin-left: -15px;
+  }
+  .image-4 {
+    margin-top: 15px;
+    margin-left: -20px;
+  }
+}
+@media screen and (min-device-width: 1382px) and (max-device-width: 1535px) {
+  .image-2 {
+    margin-left: 80px;
+    margin-top: 20px;
+  }
+  .image-3 {
+    padding-top: 75px;
+    margin-left: -5px;
+  }
+  .image-4 {
+    margin-top: 25px;
+    margin-left: -10px;
+  }
+}
+@media screen and (min-device-width: 1536px) and (max-device-width: 2580px) {
+  .image-2 {
+    margin-left: 141px;
+    margin-top: 25px;
+  }
+  .image-3 {
+    padding-top: 145px;
+    margin-left: -5px;
+  }
+  .image-4 {
+    margin-top: 35px;
+    margin-left: -20px;
+  }
+}
+/* ----------------------------------------------  ABOUT US PAGE   ---------------------- */
+
+@media (max-width: 275px) {
+  .number .col-sm-6 {
+    width: 100%;
+  }
+}
+@media (min-width: 276px) and (max-width: 375px) {
+  .number .col-3 {
+    width: 30%;
+  }
+
+  .number .col-lg-6 {
+    width: 70%;
+  }
+}
+@media (max-width: 375px) {
+  .number .col-sm-6 {
+    width: 100%;
+  }
+}
+
+@media (min-width: 376px) and (max-width: 480px) {
+  .number .col-3 {
+    width: 30%;
+  }
+
+  .number .col-lg-6 {
+    width: 70%;
+  }
+}
+
+@media (min-width: 481px) {
+  .number .col-3 {
+    width: 25%;
+  }
+
+  .number .col-lg-6 {
+    width: 75%;
+  }
+}
+@media (min-width: 530px) and (max-width: 667) {
+  .number .col-sm-6 {
+    width: 100%;
+  }
+}
+@media (max-width: 767px) {
+  .number .col-sm-6 {
+    width: 100%;
+  }
+}
+@media (max-width: 991px) {
+  .number .col-sm-6 {
+    width: 100%;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 900px) {
+  .number .col-3 {
+    width: 30%;
+  }
+
+  .number .col-lg-6 {
+    width: 70%;
+  }
+}
+@media (min-width: 901px) and (max-width: 1024px) {
+  .number .col-3 {
+    width: 10%;
+  }
+
+  .number .col-lg-6 {
+    width: 30%;
+  }
+}
+
+@media (max-width: 480px) {
+  .wel {
+    font-size: 16px;
+  }
+}
+@media (max-width: 768px) {
+  .wel {
+    font-size: 24px;
+  }
+}
+
+/* ---------------------- ICON ------------------------ */
+/* Default styles */
+/* .container-fluid {
+  padding-top: 4rem;
+} */
+
+/* .food-menu {
+  color: orange;
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 1.5rem;
+}
+
+.items {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.year-popular {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.bold {
+  font-weight: bold;
+} */
+/* .d-flex.align-items-center.justify-content-center {
+  height: 100%;
+}
+
+.text-center {
+  margin-top: 0;
+}
+
+h6.text-center {
+  margin-bottom: 0;
+} */
+
+/* @media (max-width: 480px) {
+  .row.align-items-center.m-2 {
+    
+      align-items: center;
+      margin-bottom: 1rem;
+  }
+  
+  .col-4 {
+      text-align: center;
+      margin-bottom: 0.5rem;
+  }
+  
+  .col-lg-4 {
+      text-align: center;
+      margin-left: 0;
+  }
+  
+  .row.align-items-center.m-2 .col-4,
+  .row.align-items-center.m-2 .col-lg-4 {
+      width: 100%;
+      text-align: center;
+  }
+} */
+@media (min-width: 375px) and (max-width: 767px) {
+  .row.align-items-center.m-2 .col-12 {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+}
+@media (min-width: 480px) and (max-width: 767px) {
+  .row.align-items-center .col-4.col-lg-3 {
+    margin-bottom: 10px;
+  }
+}
+
+/* -------------------------------- CARD TEAM MENBER--------------- */
+@media (min-width: 480px) and (max-width: 768px) {
+  .col-sm-6 {
+    width: 100%;
+  }
+}
+
+/* ---------------- VIDEO AND TABLE ---------------------- */
+/* .videos {
+  position: relative;
+  height: 100%;
+  min-height: 500px;
+  background: linear-gradient(rgba(15, 23, 43, .1), rgba(15, 23, 43, .1)), url(../img/video.jpg);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+} */
+/* @media (max-width: 991.98px) {
+  .video-re,
+  .form-clr {
+      width: 100%;
+      max-width: 100%;
+      height: auto;
+  }
+} */
+@media (min-width: 768px) and (max-width: 991px) {
+  .row {
+      flex-wrap: nowrap;
+  }
+
+  .col-md-12 {
+      flex: 0 0 50%;
+      max-width: 50%;
+  }
+
+  .video-re,
+  .form-clr {
+      width: 100%;
+      max-width: 100%;
+      height: auto;
+  }
+}
+
+@media screen and (min-device-width: 1024px) and (max-device-width: 1440px) {
+  
+  .form-clr{
+    padding: 20px;
+}
+.video-re{
+  width: 100%;
+  max-height: 100%;
+}
+}
+
+
+/* ------------------------- CARD - SLIDER ------------------------- */
+
+
+
+
