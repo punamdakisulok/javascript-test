@@ -341,7 +341,7 @@ footer a:hover {
 .text-small {
   font-size: 12px;
 }
-.image-2 {
+/* .image-2 {
   margin-left: 70px;
   margin-top: -10px;
 }
@@ -352,7 +352,7 @@ footer a:hover {
 .image-4 {
   margin-top: -60px;
   margin-left: -20px;
-}
+} */
 /* -------------  video  -------------------------- */
 .video-re {
   width: 100%;
@@ -427,7 +427,7 @@ footer a:hover {
 }
 /* ------------------------------------------  IMAGES ---------------------------------- */
 
-@media (min-width: 200px) {
+/* @media (min-width: 200px) {
   .image-2 {
     margin-left: 25px;
     margin-top: 10px;
@@ -487,18 +487,18 @@ footer a:hover {
   .image-2 {
     margin-left: 60px;
     margin-top: 10px;
-  }
-  .image-3 {
+  } */
+  /* .image-3 { */
     /* padding-top: -10px; */
-    margin-bottom: 15px;
+    /* margin-bottom: 15px; */
     /* margin-left: -19px; */
-    margin-bottom: -5px;
-  }
-  .image-4 {
+    /* margin-bottom: -5px; */
+  /* } */
+  /* .image-4 {
     margin-top: 20px;
     margin-left: -20px;
   }
-}
+} */
 /* @media (min-device-width: 1024px) {
   .image-2 {
     margin-left: 75px;
@@ -513,7 +513,7 @@ footer a:hover {
     margin-left: -20px;
   }
 } */
-@media screen and (min-device-width: 481px) and (max-device-width: 575px) {
+/* @media screen and (min-device-width: 481px) and (max-device-width: 575px) {
   .image-2 {
     margin-left: 48px;
     margin-top: 10px;
@@ -684,7 +684,7 @@ footer a:hover {
     margin-top: 35px;
     margin-left: -20px;
   }
-}
+} */
 /* ----------------------------------------------  ABOUT US PAGE   ---------------------- */
 
 @media (max-width: 275px) {
@@ -889,8 +889,7 @@ h6.text-center {
   }
 }
 
-@media screen and (min-device-width: 1024px) and (max-device-width: 1440px) {
-  
+@media screen and (min-device-width: 1024px) and (max-device-width: 1440px) { 
   .form-clr{
     padding: 20px;
 }
@@ -901,8 +900,62 @@ h6.text-center {
 }
 
 
-/* ------------------------- CARD - SLIDER ------------------------- */
+/* ------------------------- CARD - SLIDER -------------------------------------------------------------------------- */
+.image-3{
+  margin-left: 60px;
+}
 
-
+@media (max-width: 991.98px) {
+  .image-2,
+  .image-3 {
+      width: 50%;
+      margin: -10;
+  }
+}
+@media (max-width: 200px) {
+  .image-3 {
+    margin-left: 18px;
+  }
+}
+@media screen and (min-width: 201px) and (max-width: 445px) { 
+  .image-3 {
+    margin-left: 30px;
+  }
+}
+@media screen and (min-width: 446px) and (max-width: 543px) { 
+  .image-3 {
+    margin-left: 50px;
+  }
+}
+@media screen and (min-width: 544px) and (max-width: 767px) { 
+  .image-3 {
+    margin-left: 60px;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 867px) { 
+  .image-3 {
+    margin-left: 90px;
+  }
+  .image-4{
+    margin-right: 0;
+  }
+}
+@media screen and (min-width: 868px) and (max-width: 985px) { 
+  .image-3 {
+    margin-left: 95px;
+  }
+  .image-4{
+    margin-right: 0;
+  }
+}
+@media screen and (min-width: 986px) and (max-width: 1024px) { 
+  .image-3 {
+    margin-left: 55px;
+  }
+  .image-4{
+    margin-right: 0;
+  }
+  
+}
 
 
