@@ -354,10 +354,6 @@ footer a:hover {
   margin-left: -20px;
 } */
 /* -------------  video  -------------------------- */
-.video-re {
-  width: 100%;
-  /* height: 100%; */
-}
 .container-fluid.py-4 {
   margin-bottom: -20px;
 }
@@ -871,40 +867,39 @@ h6.text-center {
       height: auto;
   }
 } */
+
+/* .video-re{
+  height: 100%;
+  margin-top: 0px;
+} */
 @media (min-width: 768px) and (max-width: 991px) {
   .row {
       flex-wrap: nowrap;
   }
 
-  .col-md-12 {
-      flex: 0 0 50%;
-      max-width: 50%;
-  }
-
-  .video-re,
-  .form-clr {
-      width: 100%;
-      max-width: 100%;
-      height: auto;
-  }
 }
 
 @media screen and (min-device-width: 1024px) and (max-device-width: 1440px) { 
   .form-clr{
-    padding: 20px;
+    padding: 45px;
 }
-.video-re{
+/* .video-re{
   width: 100%;
   max-height: 100%;
-}
+} */
 }
 
 
 /* ------------------------- CARD - SLIDER -------------------------------------------------------------------------- */
 .image-3{
-  margin-left: 60px;
+  margin-left: 70px;
 }
-
+.image-2{
+  margin-left: -15px;
+}
+.image-4{
+  margin-left: -15px;
+}
 @media (max-width: 991.98px) {
   .image-2,
   .image-3 {
@@ -917,24 +912,41 @@ h6.text-center {
     margin-left: 18px;
   }
 }
-@media screen and (min-width: 201px) and (max-width: 445px) { 
+@media screen and (min-width: 201px) and (max-width: 300px) { 
   .image-3 {
     margin-left: 30px;
+  }
+  .image-4{
+    margin-right: 0;
+  }
+}
+@media screen and (min-width: 301px) and (max-width: 445px) { 
+  .image-3 {
+    margin-left: 35px;
+  }
+  .image-4{
+    margin-right: 0;
   }
 }
 @media screen and (min-width: 446px) and (max-width: 543px) { 
   .image-3 {
     margin-left: 50px;
   }
+  .image-4{
+    margin-right: 0;
+  }
 }
 @media screen and (min-width: 544px) and (max-width: 767px) { 
   .image-3 {
     margin-left: 60px;
   }
+  .image-4{
+    margin-right: 0;
+  }
 }
 @media screen and (min-width: 768px) and (max-width: 867px) { 
   .image-3 {
-    margin-left: 90px;
+    margin-left: 82px;
   }
   .image-4{
     margin-right: 0;
@@ -954,8 +966,21 @@ h6.text-center {
   }
   .image-4{
     margin-right: 0;
-  }
-  
+  } 
 }
-
-
+@media screen and (min-width: 1025px) and (max-width: 1324px) { 
+  .image-3 {
+    margin-left: 60px;
+  }
+  .image-4{
+    margin-right: 0;
+  } 
+}
+@media screen and (min-width: 1325px) and (max-width: 1460px) { 
+  .image-3 {
+    margin-left: 75px;
+  }
+  .image-4{
+    margin-right: 0;
+  } 
+}
